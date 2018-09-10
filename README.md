@@ -4,3 +4,7 @@ maths formulas and mermaid graphs.
 
 It uses KaTeX and markdown-it to 'compile' in-lined LaTeX maths formulas inside
 my markdown notes.
+
+I managed to read my KaTeX markdown files with
+[Makodo](https://www.madoko.net/editor.html) ! Just copy paste the course there
+if you don't wanna use Atom or VSCode.
