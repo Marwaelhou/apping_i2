@@ -126,6 +126,14 @@ ITSM - la gestion de services
 
 > voir slide 40, y'a les caracteristiques d'un processus.
 
+* Peuvent être vérifiés, mesurés, comparés et améliorés
+* Imposent davantage de rigueur à l’organisation
+* Clarifient les frontières, les rôles et les responsabilités dans l’organisation
+* Sont interdépendants
+* Permettent de garder la connaissance au sein de l’organisation
+* Permettent, aux services IT, d’être moins touchés par les changements
+  organisationnels
+
 # ITIL ?
 
 **Information Technology Infrastructure Librabry**
