@@ -713,4 +713,240 @@ $$ P(X \le 3) = 0,001 + (1-0,001)(0,001) + (1-0,001)^2(0,001) \approx 0,002997$$
 > 3. Combien faut-il d'essais en moyenne pour acceder au guichet par hasard?
 
 $$ E(X) = \frac{1}{p} = 1000 $$
+
+# Exercice 8
+
+> Le nombre d'appels telephoniques a un standard suit une loi de Poisson $P(\lambda)$.
+>
+> Supposons que pour chaque appel il y ait une probabilite donnee $p$ pour que le correspondant demande un poste A.
+>
+> X va nbre d'appels vers le standard.
+>
+> 1. Calculer la probabilite qu'il y ait $k$ appels vers A sachant qu'il y a eu $n$ appels au standard.
+> 2. Calculer $p(n, k)$ la probabilité qu'il y ait $n$ appels au standard et $k$ appels vers A.
+> 3. Calculer $P(Y=k)$, avec Y va nbre d'appels vers A.
+
+
+> 1. Calculer la probabilite qu'il y ait $k$ appels vers A sachant qu'il y a eu $n$ appels au standard.
+
+On cherche $P(Y=k / X=n)$
+
+$$ P(Y=k / X=n) = \binom{n}{k} p^k (1-p)^{n-k} $$
+
+> 2. Calculer $p(n, k)$ la probabilité qu'il y ait $n$ appels au standard et $k$ appels vers A.
+
+$$ P(n,k) = P(Y=k / X=n) P(X=n) $$
+$$ P(n,k) = \binom{n}{k} p^k (1-p)^{n-k} e^{- \lambda} \frac{\lambda^n}{n!}$$
+$$ P(n,k) = \frac{n!}{k!(n-k)!} p^k (1-p)^{n-k} e^{- \lambda} \frac{\lambda^n}{n!}$$
+$$ P(n,k) = \frac{p^k (1-p)^{n-k} e^{- \lambda} \lambda^n}{k!(n-k)!}$$
+
+> 3. Calculer $P(Y=k)$, avec Y va nbre d'appels vers A.
+
+On sait que $0 \le k \le n$
+$$(Y=k) = \bigcup_{n=k}^{+ \infty} ((Y=k) \cap (X=n)) $$
+
+$$ P(Y=k) = \sum_{n=k}^{+ \infty} \frac{p^k (1-p)^{n-k} e^{- \lambda} \lambda^n}{k!(n-k)!}$$
+$$ P(Y=k) = \frac{p^k e^{- \lambda}}{k!} \sum_{n=k}^{+ \infty} \frac{(1-p)^{n-k} \lambda^n}{(n-k)!}$$
+
+> **Rappel**
+> $$ \sum_0^{\infty} \frac{x^n}{n!} = e^x $$
+
+$$ P(Y=k) = \frac{p^k e^{- \lambda} \lambda^k}{k!} \sum_{n=k}^{+ \infty} \frac{(\lambda (1-p))^{n-k} }{(n-k)!} - \frac{-e^{- \lambda} (\lambda p)^k e^{\lambda (1-p)}}{k!}$$
+
+$$ P(Y=k) = \frac{e^{- \lambda p} e^{\lambda} e^{- \lambda} (\lambda p)^k}{k!} $$
+$$ P(Y=k) = \frac{e^{- \lambda p} (\lambda p)^k}{k!} $$
+
+# Exercice 8
+
+> Lors de tests d'acces a un ordinateur central par reseau on a constate que 95% des essais permettaient une cnnexion correcte.
+> Une entreprise doit se connecer 4 fois/j par la mise a jour de ses fichiers.
+>
+> Soit X nbre d'essais necessaires pour se connecer 4 fois.
+>
+> 1. Calculer $P(X=4)$
+> 2. Calculer la probabilité de depasser 6 essais
+> 3. Calculer $E(X)$ et $\sigma(X) = \sqrt{V(X)}$
+
+> 1. Calculer $P(X=4)$
+
+Loi de Pascal d'ordre 4. C'est un nombre d'essais necessaires pour observer un
+evenement A.
+
+$$ P(X=k) = p \binom{k-1}{n-1} p^{k-1} q^{k-n} $$
+
+$q = 1-p$ et $n = 4$
+
+$$ P(X=k) = \binom{k-1}{3} p^{4} q^{k-4} $$
+
+$$ P(X=4) = \binom{3}{3} p^{4} q^{0}  = p^4 = (0,95)^4 = 0,815 $$
+
+> 2. Calculer la probabilité de depasser 6 essais
+
+$$ P(X \gt 6) = 1 - P(X \le 6) $$
+$$ P(X \gt 6) = 1 - P(X = 4) - P(X=5) - P(X=6)$$
+$$ P(X \gt 6) = 1 - 0,96^4 - P(X=5) - P(X=6) = 0,00223$$
+
+> 3. Calculer $E(X)$ et $\sigma(X) = \sqrt{V(X)}$
+
+$E(X) = 4,21$
+$ V(X) = \frac{nq}{p^2} $ et $ \sigma = \sqrt{\frac{nq}{p^2}}$
+
 # Lois continues
+
+## Loi d'uniforme sur $[0, a]$
+
+Sa densite est $f(x) =  \frac{1}{a} \forall x \in [0, a]$, $0$ sinon.
+
+f est une densite $\Leftrightarrow$ $f \ge 0$ et $\int_{\mathbb{R}} f(x)dx = 1$
+
+$ F(x) = P(X < x) = \int_{- \infty}^{x} f(t)dt $
+
+Fonction de repartition de X.
+
+$$ F^{-1}(x) = f(x) $$
+
+$E(X) = 1/a \int^a_0 xdx = \frac{}{} [x^2/2] = a/2$
+$$E(X) = \frac{a}{2}$$
+
+$V(X) = E(X^2) - E^2(X)$
+
+$E(X^2) = \int x^2 f(x)dx = \frac{1}{a} [\frac{x^3}{3}] $
+$$E(X^2) = \frac{a^3}{3}$$
+
+$$V(X) = a^2/3 - a^2/4 = a^2/12$$
+$$V(X) = \frac{a^2}{12}$$
+
+## Loi exponentielle de parametre $\lambda$ : $Exp(\lambda)$
+
+$E(X) = \int x f(x) dx$
+$ E(X) = \int x \lambda e^{-\lambda x} dx $
+
+On prend $u\prime = \lambda e^{-\lambda x}$ et $V=x$
+
+### Rappel, Integration Par Partie (IPP)
+
+$$ \int_a^b v u\prime dx = [uv] - \int_a^b u v\prime dx $$
+
+
+$$ E(X) = [-x e^{-\lambda x}] - \int_0^{+ \infty} -e^{-\lambda x} dx $$
+$$ E(X) = \int_0^{+ \infty} e^{-\lambda x} dx $$
+$$ E(X) = [\frac{-e^{-\lambda x}}{\lambda}] = \frac{1}{\lambda}$$
+
+$E(X^2) = \int x^2f(x)dx = \int x^2 \lambda e^{-\lambda x} dx$
+$E(X^2) = [-x^2 e^{-\lambda x}] - \int 2x (-e^{-\lambda x}) dx$
+$E(X^2) = 2 \int x (e^{-\lambda x}) dx$
+$E(X^2) = 2/\lambda \int x \lambda (e^{-\lambda x}) dx$
+$E(X^2) = 2/\lambda E(X)$
+
+$$E(X^2) = \frac{2}{\lambda^2}$$
+
+$$V(X) = \frac{1}{\lambda^2}$$
+
+## Loi gamma de parametre $r > 0$, de parametre $\gamma_r$
+
+On dit qu'une va positive X suit une loi $\gamma_r$ si sa densite est:
+
+$$ f(x) = \frac{1}{\Gamma(r)} e^{-x} x^{r - 1}\ , \ \forall x > 0$$
+
+ou $$ \Gamma(x) = \int_0^{+ \infty} e^{-t} t^{x-1}dt $$
+
+### Proprietes de $\Gamma(x)$
+
+1. $\Gamma(x+1) = x \Gamma(x)$
+1. $\Gamma(1) = 1$
+1. $\Gamma(n+1) = n! \ , \forall n \in N$
+
+$E(X) = \int xf(x)dx$
+$= \int_0^{_\infty} \frac{1}{\Gamma(r)} e^{-x} x^r dx $
+$= \frac{1}{\Gamma(r)} \int_0^{_\infty}  e^{-x} x^r dx = \frac{\Gamma(r+1)}{\Gamma(r)} = \frac{r \Gamma(r)}{\Gamma(r)} = r$
+
+$$ E(X) = r $$
+
+$ E(X^2) = \int x^2 f(x) dx = \frac{1}{\Gamma(r)} \int e^{-x} x^{r+1} dx$
+$ E(X^2) = \frac{\Gamma(r+2)}{\Gamma(r)} = \frac{(r+1)\Gamma(r+1)}{\Gamma(r)} = (r+1)r = r^2 + r $
+
+$$ V(X) = r^2 + r - r^2 = r $$
+$$ V(X) = r $$
+
+### Loi Laplace-Gauss (loi normale)
+
+Sa densite est:
+
+$$ f(x) = \frac{1}{\sigma \sqrt{2\pi}} \exp(-\frac{1}{2}(\frac{X-m}{\sigma})^2) $$
+
+avec $m = E(X)$ et $\sigma = \sqrt{V(X)}$.
+
+### Notation
+
+X suit $N(m, \sigma) \equiv LG(m, \sigma)$
+
+Soit $U = \frac{X-m}{\sigma}$, la variable normale **centrée** et **réduite**.
+
+$E(U) = 0$ (centree)
+$\sigma(U) = 1$ (reduite)
+
+# Exercice 9
+
+> La duree du processus d'atterrisage d'un avion est le temps T, mesure en
+> minutes qui s'ecoule depuis la prise en charge par le taux de controle jusqu'a
+> l'immobilisation de l'avion sur la piste.
+>
+> T est une va continue $ f(t) = t e^{-t} \ t > 0 $, 0 sinon.
+>
+> 1. calculer E(T)
+> 2. Determiner la fonction de repartition de T
+> 3. Calculer P(T > 2)
+> 4. Calculer la proba que T soit compris entre 45 s et 3min
+> 5. Calculer $P(\frac{T < 4}{T > 2})$
+
+
+> 1. calculer E(T)
+
+$E(T) = \int t^2 e^{-t}dt = [-t^2 e^{-t}] - \int 2t(-e^{-t}dt)$
+$E(T) = 2 \int t(e^{-t}dt)$
+$E(T) = 2 ([-te^{-t}] + \int (e^{t}dt)) = 2 \int e^{-t}dt = e[-e^{-t}] = 2mn$
+
+> 2. Determiner la fonction de repartition de T
+
+$$ F(t) = P(T < t) = \int_0^t f(u)du = \int_0^t u e^{-u} du $$
+
+$ F(t) = [-u e^{-u}] - \int_0^t -e^{-u} du $
+$ F(t) = -te^{-t} + [-e^{u}] = -t e^{-t} -e^{-t} + 1$
+$$ F(t) = 1 - e^{-t} (t+1) \ , \forall t > 0$$
+
+> 3. Calculer P(T > 2)
+
+$P(T>2) = 1 - P(T \le 2) = 1 - F(2) = 1 - 1 + 3e^{-2} = 3e^{-2}$
+
+> 4. Calculer la proba que T soit compris entre 45sec et 3min
+
+$ P(\frac{3}{4} < T < 3) = F(3) - F(3/4) $
+$ P(\frac{3}{4} < T < 3) = 1 + 4e^{-3} - 1 + \frac{7}{4} e^{-\frac{3}{4}}$
+$$ P(\frac{3}{4} < T < 3) = \frac{7}{4} e^{-\frac{3}{4}} - 4e^{-3} = 0,627 $$
+
+> 5. Calculer $P(\frac{T < 4}{T > 2})$
+
+$P(\frac{T < 4}{T > 2}) = \frac{P(2 < T < 4)}{P(T > 2)}$
+$P(\frac{T < 4}{T > 2}) = \frac{F(4) - F(2)}{3e^{-2}}$
+$$P(\frac{T < 4}{T > 2}) = \frac{5e^{-4} + 3e^{-2}}{3e^{-2}} = 1 - \frac{5}{3} e^{-2} = 0,774 $$
+
+# Exercice
+
+> Le fonctionnement d'une machine est perturbe par des pannes.
+> $X_1$ temps exprime en heures ecoulees entre la mise en route de la machine et
+> la 1ere panne.
+> $X_n$ temps exprime en heures ecoulees entre la mise en route de la machine
+> apres la n-1 eme panne et la n-ieme. panne.
+>
+> 1. Quelle est la duree moyenne du fonctionnement entre deux pannes.
+> 2. E "chacune des 3 periodes de fonctionnement de la machine
+    durent plus de 2h."
+    Calculer P(E)
+
+> 1. Quelle est la duree moyenne du fonctionnement entre deux pannes.
+
+$$ E(X) = \frac{1}{\lambda} = 1/2 $$
+
+> 2. E "chacune des 3 periodes de fonctionnement de la machine
+    durent plus de 2h."
+    Calculer P(E)

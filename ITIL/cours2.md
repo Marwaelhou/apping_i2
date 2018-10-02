@@ -160,6 +160,23 @@ graph LR;
 
 > On parle de **SPOC** - Single Point of Contact pour parler du *service desk*.
 
+Il y a 3 types de Service Desk.
+
+* Centre d’appels (Call center)
+  * recevoir un volume important d’appels en provenance des utilisateurs.
+  * Enregistrer et transférer les appels vers l’équipe compétente.
+
+* Assistance technique (Help desk)
+  * Traiter les incidents et les demandes informatiques aussi rapidement que
+    possible en s’assurant qu’aucune demande ne se perd.
+
+* Centre de services (Service Desk)
+  * C’est aussi le plus complet .
+  * En plus des services d’assistance technique, il offre une gamme plus étendue
+    de services tels que :
+    * le point de contact unique,
+    * le pilotage et l’interface des processus ITIL.
+
 ## Centre d'appels - call center
 
 * Recevoir un volume important d'appels en provenance des users
