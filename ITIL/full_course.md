@@ -7,12 +7,15 @@
 * Une organisation de type *techno-centrique* est percue comme un probleme par le business.
 Pourquoi ?
 
+> Car l'IT est vu comme un **centre de couts**.
+
 ---
 
 * Qu'est ce qui n'est pas dans les core publications d'ITIL ?
-  * Service transition ? **OUI?**
-  * Service optimization
-  * Service design ? **OUI** ?
+  * Service transition ?
+  * **Service optimization**
+    * pas dans les 5 phases du cycle
+  * Service design ?
   * Service strategy
 
 ---
@@ -20,8 +23,8 @@ Pourquoi ?
 * The ITIL core is structured around?
   * An operations lifecycle
   * aN it managment lifecycle
-  * A service lifecycle ? **OUI** ?
-  * An infrastructure lifecycle ? **OUI** ?
+  * **A service lifecycle ?**
+  * An infrastructure lifecycle ?
 
 Faire gaffe aux **OU** et **ET** dans le schéma des caracteristiques
 d'un service. Apparemment il peut faire la biatch avec ça en partiel.
@@ -106,6 +109,8 @@ Non, il manque un A. Y'a pas de gens amputable !!!
 > Non c'est pas les seuls a pouvoir.
 
 # ITSM ?
+
+![](relation_it_business.png)
 
 ITIL - definition de l'historique
 ITSM - la gestion de services
@@ -278,6 +283,17 @@ bibliothèque des supports definitifs.
 
 On y stocke toutes les versions **definitives et approuvees** des CI.
 DML est une **zone de stockage** logicielle unique meme s'il y a plusieurs sites.
+
+## Resume de CI, CMS, etc.
+
+* CI
+  * tout element indispensable pour founir un service
+* CMDB
+  * Gerer les CI tout au long de leur cycle de vie
+* CMS
+  * encapsule CMDB mais des infos qui sont dans des DB externes (KEDB, Changes...)
+* SKMS
+  * encore au dessus du CMS (ca osef, retiens pas forcement)
 
 # 4. Phase d'exploitation (Operation)
 
