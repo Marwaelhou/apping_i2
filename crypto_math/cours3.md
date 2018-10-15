@@ -65,7 +65,7 @@ utilise un *seed*.
 Au lieu d'encoder bit par bit, on encode bloc par bloc.
 
 On utilise que des block cipher maintenant.
-AES ce sont des blocks de 128 bits, 196 bits ou 256 bits.
+AES ce sont des blocks de 128 bits, 192 bits ou 256 bits.
 
 AES Contest, Rijndael a gagne en octobre 2000.
 
@@ -77,7 +77,7 @@ AES Contest, Rijndael a gagne en octobre 2000.
 * FORTEZZA (developper pour espionner tous les citoyens americains (chiffre et
   recupere pour toutes les conversations et les envoyer a la NSA))
 
-Block = aujourd'hui, on trouve 64, 128, 256 ou 196 (juste en AES pour 196) bits
+Block = aujourd'hui, on trouve 64, 128, 256 ou 192 (juste en AES pour 192) bits
 
 
 # Block cipher modes of operation
@@ -145,3 +145,61 @@ Feistel function ou substitution transposition network.
 Chaque ligne est une permutation des entiers de 0 a 15.
 Pour rester bijectif, faut que sur chaque colone on est pas 2 fois la meme
 valeur.
+
+Attaque par interpolation de Knut
+
+## Table d'expansion
+
+T'sais quand tu veux chiffrer ton demi bloc de 32 bits t'as une cle de 48 donc
+faut "expanser" le bloc.
+
+## Calcul des sub-keys
+
+key = 64 bits (8 bits de parite, donc 56)
+subkey = 48 bits
+
+1ere cle = masque de 48 trous pour recuperer les 48 bits.
+2eme cle = on shift la cle, et on reprend le meme masque
+
+Les shifts depassent pas 28, sinon on retombe sur nos pattes.
+
+C'est pas terrible l'histoire du shift. En AES ils utilisent la SBox sur la cle
+pour la 2e.
+
+## 3DES
+
+3 cles $k_1, k_2, k_3$.
+
+$$3DES_{k_1, k_2, k_3}(m) = DES_{k_3}(DES_{k_2}^{-1}(DES_{k_1}(m)))$$
+* 3 * 56 bits = 168 bits
+$$2DES_{k_1, k_2, k_1}(m) = DES_{k_1}(DES_{k_2}^{-1}(DES_{k_1}(m)))$$
+* 2 * 56 = 112 bits
+$$DES_{k_1}(m) = 3DES_{k_1, k_1, k_1}(m)$$
+
+## Est-ce que DES est un groupe ?
+
+Si oui, ca la fout mal:
+Si c'est un groupe, $\forall k_1, k_2 \in K, \exists k_3$
+$$DES_{k1}(DES_{k2}(m)) = DES_{k3}(m)$$
+
+Pour l'instant on sait pas.
+
+# AES
+
+Rijndael a gagne en 2000 le 2nd contest AES.
+
+AES = Rijndael, base sur les noms Daemen et Rijmen des createurs.
+
+1. standard = blocks de 128 bits
+1. Y'a une permutation de 16 bytes = 128 bits
+1. Les bits vont dans une matrice 4x4, les lignes sont shifted.
+1. Ensuite transformation lineaire de la matrice avec des multiplications
+1. Une seule SBox calculee mathematiquement
+1. Y'a un XOR entre la matrice et une autre matrice donne une matrice intermediere
+1. iterations $Ne$:
+  1. 10 rounds pour 128
+  1. 13 rounds pour 192
+  1. 14 rounds pour 256
+
+Sur les 10 rounds, y'en a 9 qui se repetent, et 1 final et 1 initiale.
+Ca casse la regularite.
