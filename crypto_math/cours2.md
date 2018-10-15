@@ -1,4 +1,4 @@
-* @file cours2.md
+*a @file cours2.md
 * @author Rod Guillaume
 * @date 2 Oct 2018
 * @copyright 2018 Rod Guillaume
