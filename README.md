@@ -8,3 +8,7 @@ my markdown notes.
 I managed to read my KaTeX markdown files with
 [Makodo](https://www.madoko.net/editor.html) ! Just copy paste the course there
 if you don't wanna use Atom or VSCode.
+
+I also found that online MarkDown + KaTeX editor :
+[markx](https://markx.herokuapp.com/) which works really well, even with inlined
+math formulas.
