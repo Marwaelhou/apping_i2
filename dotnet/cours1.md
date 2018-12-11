@@ -206,3 +206,18 @@ class Chien {
 // Vieillir = liste de pointeurs
 // Type de cette liste Vieillir, c'est un delegue (ici AgeEventHandler).
 ```
+
+# Monter une DB en local sur VS
+
+1. Explorateur de serveurs
+2. Ajouter une connexion a une DB
+3. Fichier de BDD SQL Server
+
+> Ca permet de monter une DB dans Visual Studio directement et de sauter
+> l'installation de SQL Server et SSMS.
+
+# Queries en C#
+
+* `ExecuteNonQuery` = retourne le nombre de lignes impactees par le changement (donc pour UPDATE, INSERT, DELETE)
+* `ExecuteReader` = lit ligne par ligne
+* `ExecuteScalar` = retourne un entier (donc genre pour count)
