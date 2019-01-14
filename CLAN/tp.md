@@ -26,3 +26,5 @@ iface a ....
 `ovs-vsctl set port ethN tag=VLAN_ID`
 `ovs-vsctl set port ethN tag=[]`
 `ovs-vsctrl list port {ethN}`
+
+[URL](https://drive.google.com/open?id=1LBS3YRKcTszWn9D5ouEYG_SZ35SDYH9XvCKkSsC6veE)
